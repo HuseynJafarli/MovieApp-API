@@ -17,3 +17,4 @@ C:\Users\User\Desktop\MovieApp-API\MovieApp-API\MovieApp.Business\obj\Debug\net8
 C:\Users\User\Desktop\MovieApp-API\MovieApp-API\MovieApp.Business\obj\Debug\net8.0\MovieApp.Business.pdb
 C:\Users\User\Desktop\MovieApp-API\MovieApp-API\MovieApp.Business\obj\Debug\net8.0\MovieApp.Business.genruntimeconfig.cache
 C:\Users\User\Desktop\MovieApp-API\MovieApp-API\MovieApp.Business\obj\Debug\net8.0\ref\MovieApp.Business.dll
+C:\Users\User\Desktop\MovieApp-API\MovieApp-API\MovieApp.Business\obj\Debug\net8.0\MovieApp.Business.sourcelink.json

@@ -13,6 +13,7 @@ namespace MovieApp.Data
         public static void AddRepositories(this IServiceCollection services, string connectionString)
         {
             services.AddScoped<IMovieRepository, MovieRepository>();
+            services.AddScoped<IGenreRepository, GenreRepository>();
 
             services.AddDbContext<AppDbContext>(opt =>
             {
