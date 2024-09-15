@@ -10,6 +10,7 @@ namespace MovieApp.Business.Services.Interfaces
         Task DeleteAsync(int id);
         Task UpdateAsync(int id, GenreUpdateDto dto);
         Task<GenreGetDto> GetById(int id);
+        Task<bool> IsExistAsync(Expression<Func<Genre, bool>>? expression = null);
         Task<ICollection<GenreGetDto>> GetByExpression(bool asNoTracking = false, Expression<Func<Genre, bool>>? expression = null, params string[] includes);
         Task<GenreGetDto> GetSingleByExpression(bool asNoTracking = false, Expression<Func<Genre, bool>>? expression = null, params string[] includes);
     }

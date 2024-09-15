@@ -26,7 +26,6 @@ namespace MovieApp.Business.Services.Implementations
 
             data.CreatedAt = DateTime.Now;
             data.ModifiedAt = DateTime.Now;
-
             await _genreRepository.CreateAsync(data);
             await _genreRepository.CommitAsync();
         }
@@ -68,6 +67,10 @@ namespace MovieApp.Business.Services.Implementations
             return _mapper.Map<GenreGetDto>(data);
         }
 
+        public async Task<bool> IsExistAsync(Expression<Func<Genre, bool>>? expression = null)
+        {
+            return await _genreRepository.Table.AnyAsync(expression);
+        }
 
         public async Task UpdateAsync(int id, GenreUpdateDto dto)
         {

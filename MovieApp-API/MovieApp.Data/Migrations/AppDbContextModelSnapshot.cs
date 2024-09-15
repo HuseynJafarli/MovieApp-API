@@ -86,6 +86,38 @@ namespace MovieApp.Data.Migrations
                     b.ToTable("Movies");
                 });
 
+            modelBuilder.Entity("MovieApp.Core.Entities.MovieImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("MoviesImages");
+                });
+
             modelBuilder.Entity("MovieApp.Core.Entities.Movie", b =>
                 {
                     b.HasOne("MovieApp.Core.Entities.Genre", "Genre")
@@ -97,9 +129,25 @@ namespace MovieApp.Data.Migrations
                     b.Navigation("Genre");
                 });
 
+            modelBuilder.Entity("MovieApp.Core.Entities.MovieImage", b =>
+                {
+                    b.HasOne("MovieApp.Core.Entities.Movie", "Movie")
+                        .WithMany("MovieImages")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
+                });
+
             modelBuilder.Entity("MovieApp.Core.Entities.Genre", b =>
                 {
                     b.Navigation("Movies");
+                });
+
+            modelBuilder.Entity("MovieApp.Core.Entities.Movie", b =>
+                {
+                    b.Navigation("MovieImages");
                 });
 #pragma warning restore 612, 618
         }

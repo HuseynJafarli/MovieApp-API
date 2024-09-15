@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "h1wGUfaHQ08D6XM1IPdoFoUXpH/WmIR1KcTtjg2ytm8=",
+  "Hash": "Be7G/63F6GFdn/9vcy1/jk4AUaJocmNK7JRY0BNqnQI=",
   "Source": "MovieApp.API",
   "BasePath": "_content/MovieApp.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MovieApp.API\\wwwroot",
+      "Source": "MovieApp.API",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\MovieApp-API\\MovieApp-API\\MovieApp.API\\wwwroot\\",
+      "BasePath": "_content/MovieApp.API",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

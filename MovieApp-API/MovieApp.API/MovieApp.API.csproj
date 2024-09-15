@@ -21,4 +21,8 @@
     <ProjectReference Include="..\MovieApp.Business\MovieApp.Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Uploads\" />
+  </ItemGroup>
+
 </Project>
