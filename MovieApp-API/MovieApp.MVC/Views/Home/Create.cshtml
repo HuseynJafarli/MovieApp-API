@@ -1,0 +1,13 @@
+﻿@using MovieApp.MVC.ViewModels.GenreVMs
+
+
+
+@model GenreCreateVM
+
+<form method="post">
+    <input asp-for="Name" />
+    <span asp-validation-for="Name" style="color:red"></span>
+
+    <button type="submit">Create</button>
+
+</form>

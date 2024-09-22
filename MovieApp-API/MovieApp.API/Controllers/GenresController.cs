@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MovieApp.API.ApiResponses;
 using MovieApp.Business.DTOs.GenreDTOs;
 using MovieApp.Business.Exceptions.Common;
+using MovieApp.Business.Exceptions.GenreExceptions;
 using MovieApp.Business.Services.Interfaces;
 
 namespace MovieApp.API.Controllers
@@ -19,7 +21,14 @@ namespace MovieApp.API.Controllers
         [HttpGet("")]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _genreService.GetByExpression());
+            var data = await _genreService.GetByExpression();
+
+            return Ok(new ApiResponse<ICollection<GenreGetDto>>
+            {
+                StatusCode = StatusCodes.Status200OK,
+                ErrorMessage = string.Empty,
+                Data = data
+            });
         }
 
         [HttpGet("{id}")]
@@ -32,17 +41,37 @@ namespace MovieApp.API.Controllers
             }
             catch (InvalidIdException)
             {
-                return BadRequest();
+                return BadRequest(new ApiResponse<GenreGetDto>
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    ErrorMessage = "Id is not valid",
+                    Data = null
+                });
             }
             catch (EntityNotFoundException)
             {
-                return NotFound();
+                return NotFound(new ApiResponse<GenreGetDto>
+                {
+                    StatusCode = StatusCodes.Status404NotFound,
+                    ErrorMessage = "Entity not found",
+                    Data = null
+                });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(new ApiResponse<GenreGetDto>
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    ErrorMessage = ex.Message,
+                    Data = null
+                });
             }
-            return Ok(dto);
+            return Ok(new ApiResponse<GenreGetDto>
+            {
+                StatusCode = StatusCodes.Status200OK,
+                ErrorMessage = null,
+                Data = dto
+            });
         }
 
         [HttpPost]
@@ -52,12 +81,32 @@ namespace MovieApp.API.Controllers
             {
                 await _genreService.CreateAsync(dto);
             }
-            catch (Exception)
+            catch (GenreAlreadyExistsException ex)
             {
-                return BadRequest();
+                return BadRequest(new ApiResponse<GenreGetDto>
+                {
+                    Data = null,
+                    StatusCode = ex.StatusCode,
+                    ErrorMessage = ex.Message
+                });
             }
 
-            return Ok();
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiResponse<GenreGetDto>
+                {
+                    Data = null,
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    ErrorMessage = ex.Message
+                });
+            }
+
+            return Ok(new ApiResponse<GenreGetDto>
+            {
+                Data = null,
+                StatusCode = StatusCodes.Status200OK,
+                ErrorMessage = null
+            });
         }
 
         [HttpPut("{id}")]

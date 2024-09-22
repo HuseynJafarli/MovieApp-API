@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MovieApp.Business.DTOs.MovieDTOs;
 using MovieApp.Business.Exceptions.Common;
 using MovieApp.Business.Services.Interfaces;

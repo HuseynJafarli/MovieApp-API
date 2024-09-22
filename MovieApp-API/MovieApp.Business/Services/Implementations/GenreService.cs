@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using MovieApp.Business.DTOs.GenreDTOs;
 using MovieApp.Business.Exceptions.Common;
+using MovieApp.Business.Exceptions.GenreExceptions;
 using MovieApp.Business.Services.Interfaces;
 using MovieApp.Core.Entities;
 using MovieApp.Core.Repositories;
@@ -22,6 +24,8 @@ namespace MovieApp.Business.Services.Implementations
 
         public async Task CreateAsync(GenreCreateDto dto)
         {
+            if (await _genreRepository.Table.AnyAsync(x => x.Name.Trim().ToLower() == dto.Name.Trim().ToLower())) throw new GenreAlreadyExistsException(StatusCodes.Status400BadRequest, "Name", "Genre already exists");
+
             Genre data = _mapper.Map<Genre>(dto);
 
             data.CreatedAt = DateTime.Now;

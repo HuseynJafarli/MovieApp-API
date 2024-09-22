@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MovieApp.Business.DTOs.TokenDTOs;
 using MovieApp.Business.DTOs.UserDTOs;
@@ -14,11 +15,13 @@ namespace MovieApp.Business.Services.Implementations
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly IConfiguration _configuration;
 
-        public AuthService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public AuthService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _configuration = configuration;
         }
         public async Task<TokenResponseDto> Login(UserLoginDto userLoginDto)
         {
@@ -40,7 +43,7 @@ namespace MovieApp.Business.Services.Implementations
                 .. roles.Select(role=>new Claim(ClaimTypes.Role, role))
             ];
 
-            string secretKey = "e2a4d435-f1e2-4dc3-bb95-88aa7abbe51c";
+            string secretKey = _configuration.GetSection("JWT:secretkey").Value;
             DateTime expires = DateTime.UtcNow.AddDays(1);
 
             SymmetricSecurityKey symmetricSecurityKey = new(Encoding.UTF8.GetBytes(secretKey));
@@ -49,8 +52,8 @@ namespace MovieApp.Business.Services.Implementations
             JwtSecurityToken jwtSecurityToken = new(
                 signingCredentials: signingCredentials,
                 claims: claims,
-                audience: "http://localhost:5267/",
-                issuer: "http://localhost:5267/",
+                audience: _configuration.GetSection("JWT:audience").Value,
+                issuer: _configuration.GetSection("JWT:issuer").Value,
                 expires: expires,
                 notBefore: DateTime.UtcNow
                 );

@@ -1,6 +1,7 @@
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MovieApp.Business;
 using MovieApp.Business.DTOs.MovieDTOs;
@@ -53,11 +54,11 @@ namespace MovieApp.API
                     ValidateIssuer = true,
                     ValidateAudience = true,
 
-                    ValidIssuer = "http://localhost:5267/",
-                    ValidAudience = "http://localhost:5267/",
+                    ValidIssuer = builder.Configuration.GetSection("JWT:issuer").Value,
+                    ValidAudience = builder.Configuration.GetSection("JWT:audience").Value,
                     ValidateLifetime = true,
 
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("e2a4d435-f1e2-4dc3-bb95-88aa7abbe51c")),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("JWT:secretkey").Value)),
                     ClockSkew = TimeSpan.Zero
                 };
             });

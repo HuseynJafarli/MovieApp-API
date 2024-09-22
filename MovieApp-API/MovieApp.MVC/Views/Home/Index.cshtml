@@ -1,0 +1,15 @@
+﻿@using MovieApp.MVC.ViewModels.GenreVMs
+
+@model List<GenreGetVM>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.Name - @item.CreatedAt - @item.ModifiedAt</li>
+        }
+    </ul>
+</div>

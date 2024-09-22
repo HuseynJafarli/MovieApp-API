@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.Core", "MovieApp.Core\MovieApp.Core.csproj", "{9A03109A-AECF-42F6-A901-B9EBE8C12E10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieApp.Core", "MovieApp.Core\MovieApp.Core.csproj", "{9A03109A-AECF-42F6-A901-B9EBE8C12E10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.Data", "MovieApp.Data\MovieApp.Data.csproj", "{46C391D0-0AA0-4481-B5C1-3F8A27B43272}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieApp.Data", "MovieApp.Data\MovieApp.Data.csproj", "{46C391D0-0AA0-4481-B5C1-3F8A27B43272}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.Business", "MovieApp.Business\MovieApp.Business.csproj", "{9ED8FF2E-35DA-46CB-9871-4BFB648AE6AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieApp.Business", "MovieApp.Business\MovieApp.Business.csproj", "{9ED8FF2E-35DA-46CB-9871-4BFB648AE6AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.API", "MovieApp.API\MovieApp.API.csproj", "{2BCF2E09-7F00-4866-96A4-FD6354BB5B0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieApp.API", "MovieApp.API\MovieApp.API.csproj", "{2BCF2E09-7F00-4866-96A4-FD6354BB5B0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.MVC", "MovieApp.MVC\MovieApp.MVC.csproj", "{FBA95FF6-F586-479A-A730-18EABB0E8869}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2BCF2E09-7F00-4866-96A4-FD6354BB5B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BCF2E09-7F00-4866-96A4-FD6354BB5B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BCF2E09-7F00-4866-96A4-FD6354BB5B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBA95FF6-F586-479A-A730-18EABB0E8869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA95FF6-F586-479A-A730-18EABB0E8869}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA95FF6-F586-479A-A730-18EABB0E8869}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA95FF6-F586-479A-A730-18EABB0E8869}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
