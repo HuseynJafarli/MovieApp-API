@@ -10,6 +10,7 @@ namespace MovieApp.Business
         {
             services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<IGenreService, GenreService>();
+            services.AddScoped<IAuthService, AuthService>();
         }
     }
 }

@@ -56,7 +56,7 @@ namespace MovieApp.Business.Services.Implementations
 
             await _movieRepository.CreateAsync(movie);
             await _movieRepository.CommitAsync();
-            MovieGetDto getDto = new MovieGetDto(movie.Id, movie.Title, movie.Desc, movie.IsDeleted, movie.CreatedAt, movie.ModifiedAt, movie.GenreId);
+            MovieGetDto getDto = mapper.Map<MovieGetDto>(movie);
 
             return getDto;
         }
@@ -73,7 +73,7 @@ namespace MovieApp.Business.Services.Implementations
         {
             var datas = await _movieRepository.GetByExpression(asNoTracking, expression, includes).ToListAsync();
 
-            ICollection<MovieGetDto> dtos = datas.Select(data => new MovieGetDto(data.Id, data.Title, data.Desc, data.IsDeleted, data.CreatedAt, data.ModifiedAt, data.GenreId)).ToList();
+            ICollection<MovieGetDto> dtos = mapper.Map<ICollection<MovieGetDto>>(datas);
 
             return dtos;
         }
@@ -97,7 +97,7 @@ namespace MovieApp.Business.Services.Implementations
             var data = await _movieRepository.GetByExpression(asNoTracking, expression, includes).FirstOrDefaultAsync();
             if (data is null) throw new EntityNotFoundException(404, "EntityNotFound");
 
-            MovieGetDto dto = new MovieGetDto(data.Id, data.Title, data.Desc, data.IsDeleted, data.CreatedAt, data.ModifiedAt, data.GenreId);
+            MovieGetDto dto = mapper.Map<MovieGetDto>(data);
 
             return dto;
         }

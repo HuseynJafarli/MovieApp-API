@@ -19,7 +19,7 @@ namespace MovieApp.API.Controllers
         [HttpGet("")]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await movieService.GetByExpression(true));
+            return Ok(await movieService.GetByExpression(true,null,"MovieImages"));
         }
 
         [HttpPost]
@@ -44,7 +44,7 @@ namespace MovieApp.API.Controllers
             MovieGetDto dto = null;
             try
             {
-                dto = await movieService.GetById(id);
+                dto = await movieService.GetSingleByExpression(false,x => x.Id == id,"MovieImages");
             }
             catch (InvalidIdException)
             {

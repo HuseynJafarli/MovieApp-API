@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Be7G/63F6GFdn/9vcy1/jk4AUaJocmNK7JRY0BNqnQI=",
+  "Hash": "d9xFn0AG4WdyJAyNuKP8c8pKsOGevcnn255FrSlyQ2A=",
   "Source": "MovieApp.API",
   "BasePath": "_content/MovieApp.API",
   "Mode": "Default",
@@ -15,5 +15,25 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\MovieApp-API\\MovieApp-API\\MovieApp.API\\wwwroot\\Uploads\\68cd3b04-b592-492f-9313-4bda6db65677product-2.jpg",
+      "SourceId": "MovieApp.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\MovieApp-API\\MovieApp-API\\MovieApp.API\\wwwroot\\",
+      "BasePath": "_content/MovieApp.API",
+      "RelativePath": "Uploads/68cd3b04-b592-492f-9313-4bda6db65677product-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\68cd3b04-b592-492f-9313-4bda6db65677product-2.jpg"
+    }
+  ]
 }

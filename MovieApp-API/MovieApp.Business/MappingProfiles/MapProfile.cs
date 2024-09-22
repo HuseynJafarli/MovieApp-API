@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MovieApp.Business.DTOs.GenreDTOs;
 using MovieApp.Business.DTOs.MovieDTOs;
+using MovieApp.Business.DTOs.MovieImageDTOs;
 using MovieApp.Core.Entities;
 
 namespace MovieApp.Business.MappingProfiles
@@ -17,6 +18,8 @@ namespace MovieApp.Business.MappingProfiles
             CreateMap<Genre, GenreGetDto>().ReverseMap();
             CreateMap<Genre, GenreCreateDto>().ReverseMap();
             CreateMap<Genre, GenreUpdateDto>().ReverseMap();
+
+            CreateMap<MovieImage, MovieImageGetDto>().ReverseMap();
         }
     }
 }

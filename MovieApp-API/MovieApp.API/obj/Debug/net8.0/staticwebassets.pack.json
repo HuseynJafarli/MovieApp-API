@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\User\\Desktop\\MovieApp-API\\MovieApp-API\\MovieApp.API\\wwwroot\\Uploads\\68cd3b04-b592-492f-9313-4bda6db65677product-2.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\68cd3b04-b592-492f-9313-4bda6db65677product-2.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MovieApp.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.MovieApp.API.props",
+      "PackagePath": "build\\MovieApp.API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.MovieApp.API.props",
+      "PackagePath": "buildMultiTargeting\\MovieApp.API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.MovieApp.API.props",
+      "PackagePath": "buildTransitive\\MovieApp.API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
